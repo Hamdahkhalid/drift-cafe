@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drift Café</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKuIXPO0pgTpermZ_B-sgiCWOJ_rTS_7v9UQ&s');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: #FCF8D4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;   /* top-right corner */
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #5c3d2e; /* dark brown */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #FCF8D4;
+    }
+    
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin: 20px 0;
+      max-width: 600px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    .btn {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #fff;
+      padding: 12px 30px;
+      font-size: 1rem;
+      color: #FCF8D4;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #FCF8D4;
+      color: #000;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* --- Scroll Animation --- */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href=" our building.html">our building</a>
+    <a href="order online.html">order online</a>
+  </nav>
+  
+  <h1 class="fade">Drift Café</h1>
+  <p class="fade">Where every sip feels like poetry. A cozy escape for dreamers, thinkers, and coffee lovers.</p>
+  <a href="menu.html" class="btn fade">Explore Our Menu</a>
+
+  <footer>© 2025 Drift Café | timing: 11am - 2am </footer>
+
+  <!-- Scroll Animation Logic -->
+  <script>
+    const faders = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    faders.forEach(el => observer.observe(el));
+  </script>  
+</body>
+</html>

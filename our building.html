@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Building - Drift Café</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f4e1;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR ===== */
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;              
+  width: 100%;
+  background-color:#FCF8D4;       
+  padding:15px 30px;      
+  display: flex;
+  justify-content: flex-end;  
+  gap: 30px;
+  z-index: 1000;
+}
+nav a {
+  color:#5c3d2e;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #FCF8D4;
+}
+
+
+    /* ===== HERO BANNER ===== */
+    .hero {
+      position: relative;
+      height: 90vh;
+      background: url('https://s.alicdn.com/@sc04/kf/H18ea04a85dc74e48b73e3c24ebd5957a4.jpg') no-repeat center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero h1 {
+      position: relative;
+      font-size: 4rem;
+      font-weight: bold;
+      z-index: 1;
+      animation: fadeInDown 2s ease;
+    }
+
+    /* ===== COLLAGE ===== */
+    .collage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 1000px;
+      margin: 100px auto 60px; /* navbar overlap avoid */
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 1s ease;
+    }
+    .collage.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .collage img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.4s;
+    }
+    .collage img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== TEXT BELOW COLLAGE ===== */
+    .collage-text {
+      max-width: 800px;
+      margin: 30px auto;
+      font-size: 1.1rem;
+      text-align: left;
+      color: #5c3d2e;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: all 1s ease;
+    }
+    .collage-text.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== OUR INTERIOR HEADING ===== */
+    .section-heading {
+      text-align: center;
+      font-size: 3rem;
+      margin: 80px 0 40px;
+      color: #C57B57;
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: #C57B57;
+      border-radius: 2px;
+    }
+
+    /* ===== IMAGE ZIG-ZAG ===== */
+    .gallery {
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 70px; /* ✅ zyada spacing between items */
+    }
+    .gallery-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      opacity: 0;
+      transition: all 1s ease;
+    }
+    .gallery-item img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 10px;
+      transition: transform 0.4s;
+    }
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    /* 2nd gallery image thodi chhoti */
+    .gallery-item:nth-child(2) img {
+      max-width: 380px;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    /* 3rd gallery image thodi badi */
+    .gallery-item:nth-child(3) img {
+      max-width: 520px;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    .gallery-item.right {
+      flex-direction: row-reverse;
+      transform: translateX(100px);
+    }
+    .gallery-item.left {
+      flex-direction: row;
+      transform: translateX(-100px);
+    }
+    .gallery-item.center {
+      justify-content: center;
+      transform: scale(1);
+    }
+    .gallery-item.center.show {
+      transform: scale(1);
+      margin-top:60px
+    }
+
+    .gallery-item.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== KEYFRAMES ===== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="our building.html">our building</a>
+    <a href="order online.html">order Online</a>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h1>Welcome to Our Building</h1>
+  </section>
+
+  <!-- Collage -->
+  <section class="collage">
+    <img src="https://www.caffesociety.co.uk/assets/recipe-images/latte-small.jpg" alt="Hot Coffee">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" alt="Cold Coffee">
+    <img src="https://mediterraneantaste.com/wp-content/uploads/2023/11/tiramisu-4583.jpg" alt="Dessert">
+  </section>
+
+  <!-- Collage Text -->
+  <div class="collage-text">
+    <p>
+      Drift Café is more than just a coffee place — it’s an experience. From hot espressos to chilled lattes, and delicious desserts, our interior reflects the warmth and elegance we serve in every cup.
+    </p>
+  </div>
+
+  <!-- Heading -->
+  <h2 class="section-heading">OUR INTERIOR</h2>
+
+  <!-- Zig-Zag Gallery -->
+  <section class="gallery">
+    <div class="gallery-item right">
+      <img src="https://s.alicdn.com/@sc04/kf/H716b8c9819304fccb74c1955ed6af3f4u.jpg" alt="Interior 1">
+    </div>
+    <div class="gallery-item left">
+      <img src="https://i.pinimg.com/736x/46/c0/3e/46c03e33d5bc04498dd2f02ae0caf480.jpg "alt="Interior 2">
+    </div>
+    <div class="gallery-item center">
+      <img src="https://b.zmtcdn.com/data/collections/13d365b83116e2a6b00719acbd0022b0_1733911329.png" alt="Interior 3">
+    </div>
+  </section>
+
+  <!-- Scroll Animations -->
+  <script>
+    const faders = document.querySelectorAll('.collage, .collage-text, .gallery-item');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    faders.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
