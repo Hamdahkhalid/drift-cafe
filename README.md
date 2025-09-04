@@ -11,7 +11,7 @@ Fully built with HTML , CSS and JS.
 How to View the Website:
 
 Go to the GitHub Pages link: (aap ka live link yahan paste karein)
-https://HAMDAH KHALID.github.io/drift-cafe/
+https://Hamdahkhalid.github.io/drift-cafe/
 
 Technologies Used:
 
